@@ -1,2 +1,16 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<div class="movies-index">
+  <%= @movies.each do |movie|%>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="post">
+          <div class="post-content">
+            <h3><%= movie.title %></h3>
+            <small>Posted by <%= movie.user_id %> on <%= movie.date %></small>
+            <p><%= movie.description %></p>
+            <a class="btn btn-success btn-sm" href="">Like</a><a class="btn btn-danger btn-sm" href="">Dislike</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%end%>
+</div>
