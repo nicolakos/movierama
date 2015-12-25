@@ -6,8 +6,7 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    @movie.user_id = current_user_id
-    # binding.pry
+    @movie.user_id = current_user.id
     if @movie.save
       flash[:notice] = 'movie Created'
       redirect_to movies_path
@@ -17,7 +16,9 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    @movies = Movie.order('created_at DESC').all
+
+
   end
 
   def update
@@ -48,6 +49,10 @@ class MoviesController < ApplicationController
   end
 
   def show
+  end
+
+  def created_at
+    time_ago_in_words(object.created_at)
   end
 
   private

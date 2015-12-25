@@ -5,7 +5,7 @@
         <div class="post">
           <div class="post-content">
             <h3><%= movie.title %></h3>
-            <small>Posted by <%= movie.user_id %> on <%= movie.date %></small>
+            <small>Posted by <%= movie.user.email %> on <%= time_ago_in_words(movie.created_at) %></small>
             <p><%= movie.description %></p>
             <a class="btn btn-success btn-sm" href="">Like</a><a class="btn btn-danger btn-sm" href="">Dislike</a>
           </div>
